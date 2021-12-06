@@ -11,16 +11,17 @@ const axiosClient = axios.create({
     paramsSerializer: params => queryString.stringify({ ...params, api_key: apiConfig.apiKey }),
 })
 
-axios.interceptors.request.use(function (config) {
+axiosClient.interceptors.request.use(function (config) {
     return config;
 }, function (error) {
     return Promise.reject(error);
 });
 
-axios.interceptors.response.use(function (response) {
+axiosClient.interceptors.response.use(function (response) {
     if (response && response.data) {
-        return response;
+        return response.data;
     }
+    return response;
 }, function (error) {
     return Promise.reject(error);
 });

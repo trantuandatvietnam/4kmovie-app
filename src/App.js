@@ -1,10 +1,8 @@
-import React from 'react';
 import "./App.scss";
+import ConfigRoutes from "./config/Routes";
 const App = () => {
   return (
-    <div>
-
-    </div>
+    <ConfigRoutes />
   );
 };
 
